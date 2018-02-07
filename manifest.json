@@ -1,0 +1,17 @@
+{
+"manifest_version": 2,
+    "name": "Blessica",
+    "description": "Adds 'ica' to any word that ends in 'ess'. ",
+    "version": "1.0",
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*/*"
+            ],
+            "js": [
+                "main.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
