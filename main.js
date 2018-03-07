@@ -34,7 +34,7 @@ for (var i = 0; i < elements.length; i++) {
               else if (word.slice(-1) === "e"){ //for words like "finesse"
                 newWord = word.slice(0,-1) + "ica";
               }
-              else if (word.slice(-3) === "ion" || word.slice(-3) === "ive"|| word.slice(-3) === "ing"){
+              else if (word.slice(-3) === "ion" || word.slice(-3) === "ive"|| word.slice(-3) === "ing" || word.slice(-3) === "ful" ){
                 newWord = word.slice(0,-3) + "ica";
               }
               else if (word.slice(-4) === "ings"){
