@@ -12,8 +12,7 @@ for (var i = 0; i < elements.length; i++) {
 
           for (let i = 0; i < words.length; i++){
             let word = words[i];
-            let rgx = new RegExp('(?!essence)(?!essional)ess');
-            //let rgx = new RegExp('ess(?:es|ed|ion)?');
+            let rgx = new RegExp('(?!essen)(?!essex)()(?!essay)(?!essional)ess');
             if (rgx.test(word)){
               let newWord = "";
 
