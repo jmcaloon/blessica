@@ -9,36 +9,38 @@ for (var i = 0; i < elements.length; i++) {
         if (node.nodeType === 3) {
             let text = node.nodeValue;
             let words = text.split(" ");
-
           for (let i = 0; i < words.length; i++){
             let word = words[i];
-            let rgx = new RegExp('(?!essen)(?!essex)(?!essica)(?!essfully)(?!essor)(?!essay)(?!essional)ess');
-            if (rgx.test(word)){
+            let blacklist = ['session', 'sessions', 'jess', 'jesse'];
+            if (word.match("ess(?!en)(?!ex)(?!ica)(?!fully)(?!or)(?!on)(?!a)(?!y)(?!p)(?!ional)(?!ie)(?!ible)(?!ibility)") && !word.includes("\'") && blacklist.indexOf(word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")) === -1 ){
               let newWord = "";
 
-              let rgx2 = new RegExp('[.,\/#!$|%\^&\*;:{}=\-_`~()]$');
               let hasPunc = false;
               let punc = "";
 
-              if (rgx2.test(word)){
+              if (word.match("[.,\/#!$|%\^&\*;:{}=\-_`\"~()”]$")){
                 hasPunc = true;
                 punc = word.slice(-1);
                 word = word.slice(0,-1);
               }
+
               if (word.slice(-2) === "es"){
                 newWord = word.slice(0,-2) + "icas";
               }
               else if (word.slice(-2) === "ed"){
                 newWord = word.slice(0,-2) + "ica";
               }
-              else if (word.slice(-1) === "e"){ //for words like "finesse"
-                newWord = word.slice(0,-1) + "ica";
+              else if (word.slice(-4) === "ions"){
+                newWord = word.slice(0,-4) + "ica"
               }
               else if (word.slice(-3) === "ion" || word.slice(-3) === "ive"|| word.slice(-3) === "ing" || word.slice(-3) === "ful" ){
                 newWord = word.slice(0,-3) + "ica";
               }
               else if (word.slice(-4) === "ings"){
                 newWord = word.slice(0,-4) + "icas";
+              }
+              else if (word.slice(-1) === "e"){ //for words like "finesse"
+                newWord = word.slice(0,-1) + "ica";
               }
               else{
                 newWord = word.concat("ica");
