@@ -1,8 +1,8 @@
 {
 "manifest_version": 2,
     "name": "Blessica",
-    "description": "Adds 'ica' to any word that ends in 'ess'. ",
-    "version": "1.0",
+    "description": "Adds 'ica' to words that end in 'ess'.",
+    "version": "1.3",
     "content_scripts": [
         {
             "matches": [
