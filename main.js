@@ -13,7 +13,7 @@ for (var i = 0; i < elements.length; i++) {
           for (let x = 0; x < words.length; x++){
             let word = words[x];
             let blacklist = ['session', 'sessions', 'jess', 'jesse'];
-            if (word.match("ess(?!en)(?!ex)(?!ica)(?!fully)(?!ure)(?!or)(?!on)(?!a)(?!y)(?!p)(?!ional)(?!ie)(?!ible)(?!ively)(?!ibility)") && blacklist.indexOf(word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")) === -1 ){
+            if (word.match("ess(?!en)(?!ex)(?!ica)(?!fully)(?!ure)(?!or)(?!on)(?!a)(?!y)(?!p)(?!ional)(?!ie)(?!ible)(?!ively)(?!ibility)") && word.indexOf("-") === -1 && blacklist.indexOf(word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")) === -1 ){
               let idx = word.lastIndexOf("ess") + 3;
               let newWord = [word.slice(0,idx), "ica", word.slice(idx)].join('');
 
