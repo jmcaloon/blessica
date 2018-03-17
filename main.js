@@ -12,16 +12,15 @@ for (var i = 0; i < elements.length; i++) {
 
           for (let x = 0; x < words.length; x++){
             let word = words[x];
-            let blacklist = ['session', 'sessions', 'jess', 'jesse'];
-            if (word.match("ess(?!en)(?!ex)(?!ica)(?!fully)(?!ure)(?!or)(?!on)(?!a)(?!y)(?!p)(?!ional)(?!ie)(?!ible)(?!ively)(?!ibility)(?!ment)") && blacklist.indexOf(word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")) === -1 ){
+            let blacklist = ['session', 'sessions', 'jess'];
+            if (word.match("ess(?!e$)(?!e[.,\/#!$%\^&\*;:{}=\-_`~()]$)(?!ee$)(?!ee[.,\/#!$%\^&\*;:{}=\-_`~()]$)(?!en)(?!ex)(?!ica)(?!fully)(?!ure)(?!or)(?!on)(?!a)(?!y)(?!p)(?!ional)(?!ie)(?!ible)(?!ively)(?!ibility)(?!ment)") && blacklist.indexOf(word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")) === -1 ){
+              console.log(word);
               let lst = word.split(/(?=[^a-z])/ig); //need to split word on punctuation in case of hyphens or URLs
               for (var y = 0; y < lst.length; y++){
                 let subWord = lst[y];
-                console.log(subWord);
                 if (subWord.match("ess")){
                   let idx = subWord.lastIndexOf("ess") + 3;
                   let newWord = [subWord.slice(0,idx), "ica", subWord.slice(idx)].join('');
-                  console.log(newWord)
                   if (newWord.lastIndexOf("icaions") !== -1){
                     idx = newWord.lastIndexOf("icaions") + 3;
                     newWord = newWord.slice(0,idx) + "s";
