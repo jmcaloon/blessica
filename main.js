@@ -11,10 +11,9 @@ for (var i = 0; i < elements.length; i++) {
             let words = text.split(" ");
 
           for (let x = 0; x < words.length; x++){
-            let word = words[x];
-            let blacklist = ['session', 'sessions', 'jess'];
+            const word = words[x];
+            const blacklist = ['session', 'sessions', 'jess'];
             if (word.match("ess(?!e$)(?!e[.,\/#!$%\^&\*;:{}=\-_`~()]$)(?!ee$)(?!ee[.,\/#!$%\^&\*;:{}=\-_`~()]$)(?!en)(?!ex)(?!ica)(?!fully)(?!ure)(?!or)(?!on)(?!a)(?!y)(?!p)(?!ional)(?!ie)(?!ible)(?!ively)(?!ibility)(?!ment)") && blacklist.indexOf(word.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"")) === -1 ){
-              console.log(word);
               let lst = word.split(/(?=[^a-z])/ig); //need to split word on punctuation in case of hyphens or URLs
               for (var y = 0; y < lst.length; y++){
                 let subWord = lst[y];
@@ -37,7 +36,7 @@ for (var i = 0; i < elements.length; i++) {
                   }
 
                   idx = newWord.lastIndexOf("ica")+3;
-                  let end = newWord.slice(idx).replace(/[a-r&&t-z]/g, ""); //replace any letter that isn't s (keep plural)
+                  const end = newWord.slice(idx).replace(/[a-r&&t-z]/g, ""); //replace any letter that isn't s (keep plural)
                   newWord = newWord.slice(0,idx) + end;
                   lst[y]  = newWord;
                 }
@@ -46,7 +45,7 @@ for (var i = 0; i < elements.length; i++) {
               words[x] = newWord;
             }
           }
-          let newText = words.join(" ");
+          const newText = words.join(" ");
           element.replaceChild(document.createTextNode(newText), node);
         }
     }
